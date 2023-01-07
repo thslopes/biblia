@@ -1,0 +1,18 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.bible, .testament, .book, .chapter {
+    font-size: xx-large;
+    width: 100%;
+}
+
+.testament {
+    background-color: #f0f0ff;
+}
+
+.book {
+    background-color: #f0fff0;
+}

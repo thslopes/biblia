@@ -1,0 +1,16 @@
+<h2>Índice</h2>
+<ul class="biblia">
+    <li class="testament" *ngFor="let testament of bible">
+        <span (click)="showTestament(testament)">{{testament.name}}</span>
+        <ul *ngIf="visibleTestament==testament.name">
+            <li class="book" *ngFor="let book of testament.books">
+                <span (click)="showBook(book)">{{book.name}}</span>
+                <ul *ngIf="visibleBook==book.name">
+                    <li class="chapter" *ngFor="let chapter of book.chapters">
+                        <span>{{chapter}}</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>

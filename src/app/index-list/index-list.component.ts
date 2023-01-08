@@ -38,7 +38,7 @@ export class IndexListComponent {
     this.visibleTestament = "";
     this.visibleBook = "";
     this.chapterTitle = `${item.name} ${chapter}`;
-    this.http.get<Chapter>(`/assets/arc/${item.abbrev}/${chapter}.json`)
+    this.http.get<Chapter>(`/biblia/assets/arc/${item.abbrev}/${chapter}.json`)
       .subscribe((data: Chapter) => this.chapterText = data.text);
   }
 }

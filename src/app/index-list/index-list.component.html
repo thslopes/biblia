@@ -1,4 +1,4 @@
-<h2>Índice</h2>
+<span class="index">Índice</span>
 <ul class="biblia">
     <li class="testament" *ngFor="let testament of bible">
         <span (click)="showTestament(testament)">{{testament.name}}</span>
@@ -6,7 +6,7 @@
             <li class="book" *ngFor="let book of testament.books">
                 <span (click)="showBook(book)">{{book.name}}</span>
                 <ul *ngIf="visibleBook==book.name">
-                    <li class="chapter" *ngFor="let chapter of book.chapters">
+                    <li (click)="showChapter(book, chapter)" class="chapter" *ngFor="let chapter of book.chapters">
                         <span>{{chapter}}</span>
                     </li>
                 </ul>
@@ -14,3 +14,6 @@
         </ul>
     </li>
 </ul>
+
+<h2>{{chapterTitle}}</h2>
+<div [innerHTML]="chapterText"></div>

@@ -3,6 +3,10 @@ export interface Testament {
     name: string;
 }
 
+export interface Chapter {
+    text: string;
+}
+
 export interface Book {
     abbrev: string;
     name: string;

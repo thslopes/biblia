@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { BIBLE, Book, Testament } from './index';
+import { BIBLE, Book, Chapter, Testament } from './index';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-index-list',
@@ -7,10 +9,14 @@ import { BIBLE, Book, Testament } from './index';
   styleUrls: ['./index-list.component.css']
 })
 export class IndexListComponent {
+  constructor(private http: HttpClient) { };
+
   bible = BIBLE;
 
   visibleTestament = "";
   visibleBook = "";
+  chapterText = "";
+  chapterTitle = "";
 
   showTestament(item: Testament) {
     if (this.visibleTestament == item.name) {
@@ -26,6 +32,14 @@ export class IndexListComponent {
       return;
     }
     this.visibleBook = item.name;
+  }
+
+  showChapter(item: Book, chapter: number) {
+    this.visibleTestament = "";
+    this.visibleBook = "";
+    this.chapterTitle = `${item.name} ${chapter}`;
+    this.http.get<Chapter>(`/assets/arc/${item.abbrev}/${chapter}.json`)
+      .subscribe((data: Chapter) => this.chapterText = data.text);
   }
 }
 

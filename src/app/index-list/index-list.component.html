@@ -7,7 +7,8 @@
                 <span (click)="showBook(book)">{{book.name}}</span>
                 <ul *ngIf="visibleBook==book.name">
                     <li (click)="showChapter(book, chapter)" class="chapter" *ngFor="let chapter of book.chapters">
-                        <span>{{chapter}}</span>
+                        <span *ngIf="chapter<100">&nbsp;&nbsp;</span><span *ngIf="chapter<10">&nbsp;&nbsp;</span>{{chapter}}&nbsp;&nbsp;
+                        <br *ngIf="chapter%10==0"/>
                     </li>
                 </ul>
             </li>

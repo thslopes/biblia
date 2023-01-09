@@ -9,6 +9,10 @@ ul {
     width: 100%;
 }
 
+.chapter {
+    display:inline;
+}
+
 .testament {
     background-color: #f0f0ff;
 }
